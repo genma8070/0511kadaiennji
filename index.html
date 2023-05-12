@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <input type="file" name="" id="input">
+        <button type="button" id="btn">gooooooooo</button>
+        <img src="" alt="" id="image">
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    const btnDOM = document.querySelector("#btn")
+    const imgDOM = document.querySelector("#image")
+    btnDOM.addEventListener("click", () => {
+        const inputDOM = document.querySelector("#input")
+        const reader = new FileReader();
+        console.dir(inputDOM);
+
+        reader.readAsDataURL(inputDOM.files[0]);
+
+        reader.onload = function (e) {
+            console.log(e)
+            imgDOM.src = e.target.result;
+
+
+        }
+    })
+</script>
